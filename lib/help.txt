@@ -12,6 +12,7 @@ Options:
   --bare, -b          do not run any git commands after creating the repo
   --no-open           do not open the GitHub repo in the browser after creation
   --org, -o           the organization to create the repo in (optional)
+  --cwd, -c           change the current working directory for the repo
 
 Example:
   ghrepo -p --org stackgl -m "first commit"

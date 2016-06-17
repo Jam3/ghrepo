@@ -36,6 +36,8 @@ if (argv.help) {
   return
 }
 
+var cwd = (argv.c || argv.cwd) ? (argv.c || argv.cwd) : process.cwd()
+
 var dryRun = argv['dry-run']
 if (dryRun) {
   console.error(chalk.grey("(dry run)"))
@@ -160,12 +162,12 @@ function getOpts() {
 }
 
 function getPackage() {
-  return loadPackage()
+  return loadPackage(cwd)
     .then(null, function(err) {
       console.warn(chalk.bgYellow("WARN"), chalk.magenta("could not open package.json"))
       console.warn(chalk.dim(err.message))
       return Promise.resolve({
-        name: path.basename(process.cwd())
+        name: path.basename(cwd)
       })
     })
 }
