@@ -51,9 +51,6 @@ if (dryRun) {
     .then(publish)
     .then(commit)
     .then(argv.open !== false ? open : noop, err())
-    .then(function(){
-      process.exit(0);
-    })
     .catch(err())
 }
 
