@@ -119,7 +119,8 @@ function commit(result) {
   return getMessage().then(function(message) {
     return gitCommit({
       message: message,
-      url: url + '.git'
+      url: url + '.git',
+      cwd: cwd
     }).catch(function() {
       console.warn(chalk.dim("git commands ignored"))
       return Promise.resolve(url)
